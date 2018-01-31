@@ -25,4 +25,10 @@ if [[ -n "$WL" ]]; then
     echo $WL | awk -v RS=, '{print}' >> whitelist.txt
 fi
 
-java $JVM_OPTS -jar forge-*.jar nogui
+if [[ ! -e settings.sh ]]; then
+	cp settings.sh local-settings.sh
+fi
+
+sleep 20
+
+bash ./ServerStart.sh
