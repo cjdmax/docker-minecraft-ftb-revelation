@@ -17,6 +17,9 @@ fi
 if [[ -n "$LEVEL" ]]; then
     sed -i "/level-name\s*=/ c level-name=$LEVEL" /data/server.properties
 fi
+if [[ -n "$FLIGHT" ]]; then
+	sed -i "/allow-flight\s*=/ c allow-flight=$FLIGHT" /data/server.properties
+fi
 if [[ -n "$OPS" ]]; then
     echo $OPS | awk -v RS=, '{print}' >> ops.txt
 fi
