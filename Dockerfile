@@ -4,13 +4,15 @@ FROM java:8
 
 MAINTAINER example@example.com
 
-ENV VERSION=1.6
+# manual upgrades only chaps
+# when you upgrade, you are responsible for removing the duplicate mods from your ./mods folder on your volume.
+ENV VERSION=1.8
 
 RUN apt-get update && apt-get install -y wget unzip
 RUN adduser --disabled-password --home=/data --uid 1234 --gecos "minecraft user" minecraft
 
 RUN mkdir /tmp/ftb && cd /tmp/ftb && \
-  wget -c https://media.forgecdn.net/files/2533/332/FTBRevelationServer_1.6.0.zip -O revelation.zip && \
+  wget -c https://media.forgecdn.net/files/2545/327/FTBRevelationServer_1.8.0.zip -O revelation.zip && \
 	unzip revelation.zip && \
 	chown -R minecraft /tmp/ftb && \
 	bash /tmp/ftb/FTBInstall.sh

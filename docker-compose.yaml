@@ -1,0 +1,15 @@
+#
+#docker run -d -ti -p 25560:25565 -p 8123:8123 --name revelation --restart always -v /docker/revelation:/data revelation:latest
+#
+version: '3.2'
+services:
+  revelation:
+    image: revelation:latest
+    restart: always
+    ports:
+    - "25560:25565"
+    - "8123:8123"
+    volumes:
+      - type: bind
+        source: /docker/revelation
+        target: /data
