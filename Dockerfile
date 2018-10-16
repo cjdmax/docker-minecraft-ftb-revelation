@@ -6,13 +6,13 @@ MAINTAINER example@example.com
 
 # manual upgrades only chaps
 # when you upgrade, you are responsible for removing the duplicate mods from your ./mods folder on your volume.
-ENV VERSION=1.8
+ENV VERSION=2.5.0
 
 RUN apt-get update && apt-get install -y wget unzip
 RUN adduser --disabled-password --home=/data --uid 1234 --gecos "minecraft user" minecraft
 
 RUN mkdir /tmp/ftb && cd /tmp/ftb && \
-  wget -c https://media.forgecdn.net/files/2545/327/FTBRevelationServer_1.8.0.zip -O revelation.zip && \
+  wget -c https://media.forgecdn.net/files/2618/46/FTBRevelationServer_2.5.0.zip -O revelation.zip && \
 	unzip revelation.zip && \
 	chown -R minecraft /tmp/ftb && \
 	bash /tmp/ftb/FTBInstall.sh
@@ -29,7 +29,7 @@ WORKDIR /data
 
 CMD /start
 
-ENV MOTD Revelation ${VERSION} FREEFORM on docker
+ENV MOTD Revelation ${VERSION} FREEFORM world II
 ENV LEVEL world
 ENV JVM_OPTS -Xms4096m -Xmx4096m
 ENV FLIGHT true

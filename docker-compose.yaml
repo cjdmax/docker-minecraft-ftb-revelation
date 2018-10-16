@@ -11,5 +11,5 @@ services:
     - "8123:8123"
     volumes:
       - type: bind
-        source: /docker/revelation
+        source: /docker/revelation2
         target: /data
