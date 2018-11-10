@@ -4,7 +4,8 @@ set -e
 
 cd /data
 
-cp -rf /tmp/ftb/* .
+# copy only if the source file is newer
+cp -urf /tmp/ftb/* .
 echo "eula=true" > eula.txt
 
 if [[ ! -e server.properties ]]; then
