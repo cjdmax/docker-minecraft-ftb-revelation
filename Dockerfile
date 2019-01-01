@@ -6,13 +6,13 @@ MAINTAINER example@example.com
 
 # manual upgrades only chaps
 # when you upgrade, you are responsible for removing the duplicate mods from your ./mods folder on your volume.
-ENV VERSION=2.5.0
+ENV VERSION=2.6.0
 
 RUN apt-get update && apt-get install -y wget unzip
 RUN adduser --disabled-password --home=/data --uid 1234 --gecos "minecraft user" minecraft
 
 RUN mkdir /tmp/ftb && cd /tmp/ftb && \
-  wget -c https://media.forgecdn.net/files/2618/46/FTBRevelationServer_2.5.0.zip -O revelation.zip && \
+  wget -c https://media.forgecdn.net/files/2637/817/FTBRevelationServer_2.6.0.zip -O revelation.zip && \
 	unzip revelation.zip && \
 	chown -R minecraft /tmp/ftb && \
 	bash /tmp/ftb/FTBInstall.sh
