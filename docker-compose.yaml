@@ -6,10 +6,12 @@ services:
   revelation:
     image: revelation:latest
     restart: always
+    stdin_open: true
+    tty: true
     ports:
     - "25560:25565"
     - "8123:8123"
     volumes:
       - type: bind
-        source: /docker/revelation2
+        source: /docker/revelation4
         target: /data
